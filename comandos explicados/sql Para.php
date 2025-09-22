@@ -46,7 +46,7 @@ $sqlCreate = "
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(100) NOT NULL,
         email VARCHAR(100) NOT NULL UNIQUE
-    )
+    );
 ";
 $pdo->exec($sqlCreate); // exec() é usado para comandos sem retorno (CREATE, DROP, etc).
 
