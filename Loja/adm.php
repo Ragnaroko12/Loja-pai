@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ($_SESSION['nome'] == null){
+    header('location:login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,19 +17,23 @@ session_start();
     .navfundo{
         background-color: rgb(35, 43, 82);
     }   
+    .preto{
+        color: rgb(0, 0, 0);
+    }
 </style>
 
 <body>
     <div class="container">
-        <nav class="navbar navfundo navbar-expand-lg gap-3 ">
-            <h3 class="">Bem vindo <?php echo $_SESSION['nome']; ?></h3>
+        <nav class="navbar navfundo navbar-expand-lg gap-3  ">
+            <h3 class="preto">Bem vindo <?php echo $_SESSION['nome']; ?></h3>
             <ul class="navbar-nav ">
                 <li class="nav-item ">
-                    <a class="nav-link active " aria-current="page" href="#">Ver Estoque</a>
+                    <a class="nav-link active preto" aria-current="page" href="verstoque.php">Ver Estoque</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active   " href="#">Ver pedidos Pedidos</a>
+                    <a class="nav-link active  preto " href="#">Ver pedidos Pedidos</a>
                 </li>
+
         </nav>
 
 
