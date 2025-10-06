@@ -23,8 +23,9 @@ if ($_SESSION['nome'] == null){
 </style>
 
 <body>
-    <div class="container">
-        <nav class="navbar navfundo navbar-expand-lg gap-3  ">
+
+        <nav class="navbar navfundo navbar-expand-lg gap-3 p-3
+          ">
             <h3 class="preto">Bem vindo <?php echo $_SESSION['nome']; ?></h3>
             <ul class="navbar-nav ">
                 <li class="nav-item ">
@@ -35,7 +36,7 @@ if ($_SESSION['nome'] == null){
                 </li>
 
         </nav>
-
+    <div class="container">
 
 
     </div>
