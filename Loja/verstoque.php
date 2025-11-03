@@ -44,7 +44,7 @@
                 foreach ($dados as $key => $value) {
 
                 echo"<tr>";
-                echo   "<td>".$dados[$key]["doce"]."</td>";
+                echo   "<td>".$dados[$key]["nome"]."</td>";
                 echo   "<td>".$dados[$key]["qnt"]."</td>";
                 echo   "<td>".$dados[$key]["preço"]." $"."</td>";
                 echo   "<td><a href='' class='link-success gap-3'>
@@ -52,13 +52,13 @@
                             </a>
                         </td>";
                 echo   "<td>
-                            <a href='funçoes.php?id=".$dados[$key]['id']."&tp=excluir'>
+                            <a href='funçoes.php?id=".$dados[$key]['id']."&tp=excluir&gt=doces'>
                                 deletar doces em estoque 
                             </a>
                         </td>";
                 echo    "<td>
-                            <a href='' class='link-warning'>
-                                atualizar estoque
+                           <a href='funçoes.php?id=".$dados[$key]['id']."&tp=alterar&gt=doces'>
+                                alterar doces em estoque
                             </a>
                         </td>";
                 echo"</tr>";

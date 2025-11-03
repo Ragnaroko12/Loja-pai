@@ -13,8 +13,32 @@ if(!empty($_GET['id'])){
     if (isset($_GET['id']) and $_GET['tp'] == "excluir"){
         exclusão($_GET['id']);
     }elseif (isset($_GET['id']) and $_GET['tp'] == "alterar"){
-            alterar($_GET['id']);
+        $_SESSION['id'] == $_GET['id'];
+        alterar($_GET['id']);
+    }elseif (isset($_GET['id']) and $_GET['tp'] == "concluir" ){
+        concluird($_SESSION['id'],$_POST);
     }
+}
+
+function concluird($id,$dados){
+    //d = doces
+    $pdo = init();
+     $sql = $pdo->prepare("UPDATE `doce` SET
+                                            nome=?,
+                                            qnt=?,
+                                            preço=?,
+                                            WHERE id=?");
+
+$sql->execute(array($dados['nome'],
+                    $dados['qnt'],
+                    $dados['preco'],
+                    $id
+));
+
+$_SESSION['id'] = null;
+
+    header('location: Alteração.php');
+
 }
 
 function alterar($id){
@@ -34,7 +58,7 @@ function consulta(){
     return $dados;
 }
 
-function exclusão($id){
+function exclusão($id,){
     $pdo = init();
     $sql = $pdo->prepare("DELETE FROM `doces` WHERE id=?");
     $sql->execute(array($id));
