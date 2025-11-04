@@ -27,8 +27,10 @@
 
 
     <div class="container ">
-        <div class="">
-            <h1>Doce em estoque</h1>
+            <div class="d-flex flex-row">
+                <h1>Doce em estoque</h1>
+                <a href="" class="btn btn-primary align-items-end">Adicionar doce</a>
+            </div>
             <div class="mt-2">
             <table class="table table-striped table-hover  ">
                 <thead>
@@ -36,6 +38,7 @@
                 <th>nome do doce</th>
                 <th>qnt</th>
                 <th>preço</th>
+                <th>Açoes</th>
             </tr>
             </thead>
             <tbody>
@@ -47,17 +50,13 @@
                 echo   "<td>".$dados[$key]["nome"]."</td>";
                 echo   "<td>".$dados[$key]["qnt"]."</td>";
                 echo   "<td>".$dados[$key]["preço"]." $"."</td>";
-                echo   "<td><a href='' class='link-success gap-3'>
-                                adicionar doces em estoque 
-                            </a>
-                        </td>";
                 echo   "<td>
-                            <a href='funçoes.php?id=".$dados[$key]['id']."&tp=excluir&gt=doces'>
+                            <a class='link-danger' href='funçoes.php?id=".$dados[$key]['id']."&tp=excluir&gt=doces'>
                                 deletar doces em estoque 
                             </a>
                         </td>";
                 echo    "<td>
-                           <a href='funçoes.php?id=".$dados[$key]['id']."&tp=alterar&gt=doces'>
+                           <a class='link-warning' href='funçoes.php?id=".$dados[$key]['id']."&tp=alterar&gt=doces'>
                                 alterar doces em estoque
                             </a>
                         </td>";
@@ -66,11 +65,7 @@
             ?>
             </tbody>
             </table>
-            
-            </div>
-            
-
-        </div>    
+            </div>        
         <div>
             <h1>dddd</h1>
         </div>      

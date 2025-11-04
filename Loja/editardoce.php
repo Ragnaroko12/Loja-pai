@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    include_once("funçoes.php");
+    $dados = consultaid($_SESSION['id']);
+   
 ?>
 
 <!DOCTYPE html>
@@ -16,21 +18,21 @@
     }
 </style>
 <body class="d-flex align-items-center justify-content-center vh-100 azul">
- 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="">
-                    <div class=" text-center">
-                        <h3>Login</h3>
+                    <div class="text-center">
+                        <h3>editar doce</h3>
                     </div>
                     <div class="">
-                        <form action="funçoes.php&gt=concluir" method="post">
+                        <form action="funçoes.php?tp=concluir" method="post">
                             <div class="d-flex flex-column gap-3 ">
-                                <input class="form-control" type="text" name="nome" placeholder="nome do doce" id="">
-                                <input class="form-control" type="number" name="qnt" placeholder="quantidade em estoque" id="">
-                                <input class="form-control" type="text" name="preco" placeholder="preço do doce" id="">
+                                <input class="form-control" type="text" name="nome" value="<?php echo $dados[0]['nome']?>" placeholder="nome do doce" id="">
+                                <input class="form-control" type="text" name="qnt" value="<?php echo $dados[0]['qnt']?> unidades" placeholder="quantidade em estoque" id="">
+                                <input class="form-control" type="text" name="preco" value="<?php echo $dados[0]['preço']?> R$" placeholder="preço do doce" id="">
                                 <input type="submit" value="Enviar" class="btn btn-primary">
+                                <a href="verstoque.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
                             </div>
                         </form>
 
