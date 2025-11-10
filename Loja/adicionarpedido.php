@@ -16,50 +16,32 @@
     }
 </style>
 <body class="d-flex align-items-center justify-content-center vh-100 azul">
- 
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="">
                     <div class=" text-center">
-                        <h3>Login</h3>
+                        <h3>adicionar ingrediente</h3>
                     </div>
                     <div class="">
-                        <form action="Logar.php" method="post">
-                            <div class="mb-3">
-                                <label for="text"  class="form-label">Nome</label>
-                                <input type="text" name="nome" class="form-control" placeholder="digite seu nome" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Senha</label>
-                                <input type="password" name="senha" class="form-control"  placeholder="Sua Senha" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Entrar</button>
-                            </div>
+                        <form action="funçoes.php?tp=adicionar&gt=3" class="d-flex flex-column gap-3" method="post">
+                            <input type="text" name="nome" class="form-control" placeholder="digite o nome do cliente " id="">
+                            <input type="text" name="doce" class="form-control" placeholder="digite o(os) doce(s) pedido(s)" id="">
+                            <input type="text" name="qnt" class="form-control" placeholder="digite a quantidade de de doces pedidos" id="">
+                            <input type="text" name="Status" value="em andamento" class="form-control" readonly placeholder="digite o preço do ingredientes" id="">
+                            <input type="submit" value="Enviar" class="btn btn-primary">
+                            <a href="verpedido.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
                         </form>
-
-
                     </div>
                     <div class= "text-center">
                         <small>&copy; azamis doce</small>
                     </div>
-                    <?php
-                        if (isset($_SESSION['retorno'])) {
-                            echo $_SESSION['retorno'];
-                            unset($_SESSION['retorno']); // Limpa para não reaparecer após refresh
-                        }
-                    ?>
                 </div>
             </div>
         </div>
     </div>
-     <script>
-    alert("contas já feita no read.me")
- </script>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-

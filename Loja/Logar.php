@@ -10,14 +10,14 @@ $dados = $sql ->fetchALL(PDO::FETCH_ASSOC);
 
 if (!empty($dados)) {
     $usuario = $dados[0];
-    $_SESSION['nivel'] = $usuario['nivel'];
+    $_SESSION['nivel'] = $usuario['nivel de acesso'];
     $_SESSION['nome'] = $usuario['nome'];
-    header("Location: adm.php");
-
+    header("location: adm.php");
 } else {
     $_SESSION['retorno'] = "<div class='alert alert-danger' role='alert'>
     Saia Ladrão! Usuário ou senha incorretos.
     </div>";
-    header("Location: login.php");
+    header("location: login.php");
+
 
 }

@@ -1,7 +1,7 @@
 <?php
     include_once("funçoes.php");
-    $dados = consultaid($_SESSION['id']);
-   
+    $dados = consultaip($_SESSION['id']);
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +18,8 @@
     }
 </style>
 <body class="d-flex align-items-center justify-content-center vh-100 azul">
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
@@ -26,13 +28,20 @@
                         <h3>editar doce</h3>
                     </div>
                     <div class="">
-                        <form action="funçoes.php?tp=concluir&gt=doces" method="post">
+                        <form action="funçoes.php?tp=concluir&gt=pedido" method="post">
                             <div class="d-flex flex-column gap-3 ">
                                 <input class="form-control" type="text" name="nome" value="<?php echo $dados[0]['nome']?>" placeholder="nome do doce" id="">
+                                <input class="form-control" type="text" name="doce" value="<?php echo $dados[0]['doce']?>" id="">
                                 <input class="form-control" type="text" name="qnt" value="<?php echo $dados[0]['qnt']?> unidades" placeholder="quantidade em estoque" id="">
-                                <input class="form-control" type="text" name="preco" value="<?php echo $dados[0]['preço']?> R$" placeholder="preço do doce" id="">
+                                <select name="Status" class="form-select">
+                                    <option value="Finalizado" <?= ($dados[0]['Stat'] == "Finalizado") ? 'selected' : '' ?>>Finalizado</option>
+                                    <option value="Em andamento" <?= ($dados[0]['Stat'] == "Em andamento") ? 'selected' : '' ?>>Em andamento</option>
+                                    <option value="Cancelado" <?= ($dados[0]['Stat'] == "Cancelado") ? 'selected' : '' ?>>Cancelado</option>
+                                </select>
+
+
                                 <input type="submit" value="Enviar" class="btn btn-primary">
-                                <a href="verstoque.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
+                                <a href="verpedidos.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
                             </div>
                         </form>
 
