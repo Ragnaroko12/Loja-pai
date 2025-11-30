@@ -1,6 +1,10 @@
 <?php
     include_once("funçoes.php");
     $dados = consultap();
+
+    if(!isset($_SESSION["nome"])){
+        header("location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +38,12 @@
     </li>
     <?php if ($_SESSION['nivel'] == 3){?>
         <li class="nav-item">
-            <a class="nav-link active preto" href="#">Cadastrar funcionarios</a>
+            <a class="nav-link active preto" href="CadastrarFuncionario.php">Cadastrar funcionarios</a>
         </li>
     <?php } ?>
   </ul>
 
-  <a href="adm.php" class="btn btn-danger ms-auto">Voltar</a>
+  <a href="logout.php" class="btn btn-danger ms-auto">Sair</a>
 </nav>
 
     <div class="container d-flex flex-row">

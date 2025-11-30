@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 10/11/2025 às 10:50
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Host: localhost:3306
+-- Tempo de geração: 30/11/2025 às 03:30
+-- Versão do servidor: 8.4.3
+-- Versão do PHP: 8.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `doces` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(10) NOT NULL,
-  `qnt` int(11) NOT NULL,
-  `preço` int(11) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `qnt` int NOT NULL,
+  `preço` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `doces`
+--
+
+INSERT INTO `doces` (`id`, `nome`, `qnt`, `preço`) VALUES
+(16, 'caju', 11, 10);
 
 -- --------------------------------------------------------
 
@@ -41,11 +48,18 @@ CREATE TABLE `doces` (
 --
 
 CREATE TABLE `ingredientes` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `Custo` int(11) NOT NULL,
-  `qnt` int(11) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `Custo` int NOT NULL,
+  `qnt` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `ingredientes`
+--
+
+INSERT INTO `ingredientes` (`id`, `nome`, `Custo`, `qnt`) VALUES
+(15, 'sacrose', 11, 12);
 
 -- --------------------------------------------------------
 
@@ -54,12 +68,19 @@ CREATE TABLE `ingredientes` (
 --
 
 CREATE TABLE `pedidos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `doce` varchar(100) NOT NULL,
-  `qnt` int(11) NOT NULL,
-  `Stat` varchar(100) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `doce` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `qnt` int NOT NULL,
+  `Stat` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `nome`, `doce`, `qnt`, `Stat`) VALUES
+(13, 'Luis', 'Cajuzinho', 11, 'em andamento');
 
 -- --------------------------------------------------------
 
@@ -68,19 +89,21 @@ CREATE TABLE `pedidos` (
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `numero` int(11) NOT NULL,
-  `nivel de acesso` int(11) NOT NULL,
-  `senha` int(11) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `numero` int NOT NULL,
+  `nivel_de_acesso` int NOT NULL,
+  `senha` varchar(250) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `numero`, `nivel de acesso`, `senha`) VALUES
-(1, 'Luis', 1234, 3, 7);
+INSERT INTO `usuarios` (`id`, `nome`, `numero`, `nivel_de_acesso`, `senha`) VALUES
+(1, 'Luis', 1234, 3, '7'),
+(2, 'adm', 1234, 3, '7c4a8d09ca3762af61e59520943dc26494f8941b'),
+(4, 'cozinheiro', 122212, 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 --
 -- Índices para tabelas despejadas
@@ -118,25 +141,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `doces`
 --
 ALTER TABLE `doces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `ingredientes`
 --
 ALTER TABLE `ingredientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

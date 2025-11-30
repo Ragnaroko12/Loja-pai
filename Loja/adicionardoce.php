@@ -1,5 +1,8 @@
 <?php
     session_start();
+        if(!isset($_SESSION["nome"])){
+        header("location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +33,7 @@
                             <input type="text" name="qnt" class="form-control" placeholder="digite a quantidade de doces" id="">
                             <input type="text" name="preço" class="form-control" placeholder="digite o preço do doce" id="">
                             <input type="submit" value="Enviar" class="btn btn-primary">
-                            <a href="verpedido.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
+                            <a href="verstoque.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
                         </form>
                     </div>
                     <div class= "text-center">

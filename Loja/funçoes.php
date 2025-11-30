@@ -26,7 +26,29 @@ if(isset($_GET['tp'])){
     if($_GET['tp'] == "adicionar"){
         cadastrar($_GET['gt']);
     }
+    if($_GET['tp'] == "cadastrarfun"){
+        if($_POST['senha'] == $_POST['csenha']){
+            cadastrarfun();
+        }else{
+            $_SESSION['retorno'] = "<p class='link-danger'>senhas não conferem</p>";
+        }
+        
+    };
 }
+
+function cadastrarfun(){
+     $pdo = new PDO('mysql:host=localhost;dbname=azami','root','');
+    
+        $sql = $pdo -> prepare("INSERT INTO `usuarios` VALUES (null,?,?,?,?)");
+   
+        $sql -> execute(array($_POST['nome'],
+                          $_POST['numero'],
+                          $_POST['nivel'],
+                          sha1($_POST['senha'])
+        ));
+        echo 1;
+        header("location:verstoque.php");
+};
 function cadastrar($tipo){
 // o $tipo especifica em qual banco de dados o cadastro ocorrera 
     if($tipo == 1){

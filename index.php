@@ -25,7 +25,7 @@
                         <h3>Login</h3>
                     </div>
                     <div class="">
-                        <form action="Logar.php" method="post">
+                        <form action="Loja/Logar.php" method="post">
                             <div class="mb-3">
                                 <label for="text"  class="form-label">Nome</label>
                                 <input type="text" name="nome" class="form-control" placeholder="digite seu nome" required>

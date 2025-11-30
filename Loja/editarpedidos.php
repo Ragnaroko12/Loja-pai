@@ -1,7 +1,9 @@
 <?php
     include_once("funçoes.php");
     $dados = consultaip($_SESSION['id']);
-
+        if(!isset($_SESSION["nome"])){
+        header("location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="">
                     <div class="text-center">
-                        <h3>editar doce</h3>
+                        <h3>alterar pedido </h3>
                     </div>
                     <div class="">
                         <form action="funçoes.php?tp=concluir&gt=pedido" method="post">

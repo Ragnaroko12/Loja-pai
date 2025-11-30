@@ -2,6 +2,9 @@
     include_once("funçoes.php");
     $dados = consulta();
     $dados2 = consultai();
+        if(!isset($_SESSION["nome"])){
+        header("location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +32,12 @@
     </li>
     <?php if ($_SESSION['nivel'] == 3){?>
         <li class="nav-item">
-            <a class="nav-link active preto" href="#">Cadastrar funcionarios</a>
+            <a class="nav-link active preto" href="CadastrarFuncionario.php">Cadastrar funcionarios</a>
         </li>
     <?php } ?>
   </ul>
 
-  <a href="adm.php" class="btn btn-danger ms-auto">Voltar</a>
+  <a href="logout.php" class="btn btn-danger ms-auto">Sair</a>
 </nav>
 
 <div class="container">
@@ -94,7 +97,7 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>nome do doce</th>
+                        <th>nome do ingrediente</th>
                         <th>qnt</th>
                         <th>Custo do produto</th>
                         <th>Ações</th>

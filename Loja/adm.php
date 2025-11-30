@@ -1,8 +1,8 @@
 <?php
 session_start();
-if ($_SESSION['nome'] == null){
-    header('location:login.php');
-}
+    if(!isset($_SESSION["name"])){
+        header("location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>

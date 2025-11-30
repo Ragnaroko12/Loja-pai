@@ -1,6 +1,9 @@
 <?php
     include_once("funçoes.php");
     $dados = consultaii($_SESSION['id']);
+        if(!isset($_SESSION["nome"])){
+        header("location:../index.php");
+    }
 ?>
 
 <!DOCTYPE html>

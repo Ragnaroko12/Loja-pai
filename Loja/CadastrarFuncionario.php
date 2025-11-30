@@ -25,16 +25,23 @@
             <div class="col-md-6 col-lg-4">
                 <div class="">
                     <div class=" text-center">
-                        <h3>adicionar pedido</h3>
+                        <h3>Cadastrar funcionario</h3>
                     </div>
                     <div class="">
-                        <form action="funçoes.php?tp=adicionar&gt=3" class="d-flex flex-column gap-3" method="post">
+                        <form action="funçoes.php?tp=cadastrarfun" class="d-flex flex-column gap-3" method="post">
                             <input type="text" name="nome" class="form-control" placeholder="digite o nome do cliente " id="">
-                            <input type="text" name="doce" class="form-control" placeholder="digite o(os) doce(s) pedido(s)" id="">
-                            <input type="text" name="qnt" class="form-control" placeholder="digite a quantidade de de doces pedidos" id="">
-                            <input type="text" name="Status" value="em andamento" class="form-control" readonly placeholder="digite o preço do ingredientes" id="">
+                            <input type="text" name="numero" class="form-control" placeholder="digite o numero do funcionario" id="">
+                            <select name="nivel" id="" class="form-select">
+                                <option value="#">selecione cargo do funcionario</option>
+                                <option value="1">Atendente</option>
+                                <option value="2">Cozinheiro</option>
+                            </select>
+                            <input type="password" name="senha" class="form-control" placeholder="digite a semha do funcionario">
+                            <input type="password" name="csenha" class="form-control" placeholder="confirme a senha do funcionario senha">
                             <input type="submit" value="Enviar" class="btn btn-primary">
                             <a href="verpedidos.php" class="btn btn-danger bi-arrow-right">VOLTAR </a>
+                            <?php  ?>
+                            
                         </form>
                     </div>
                     <div class= "text-center">
